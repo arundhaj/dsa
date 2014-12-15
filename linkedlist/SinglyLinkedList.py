@@ -38,20 +38,18 @@ class SinglyLinkedList:
     def insert(self, index, newNode):
         if self.isEmpty():
             # if empty list
-            print 'first node'
             self.first = newNode
         else:
             currentNode = self.first
             prevNode = None
-            i = 0
+            i = 1
             while(i < index):
-                print 'inside loop'
                 prevNode = currentNode
                 currentNode = currentNode.next
                 i += 1
 
             if prevNode == None:
-                print 'prev none'
+                # print 'first node'
                 newNode.next = self.first
                 self.first = newNode
             else:
@@ -60,18 +58,36 @@ class SinglyLinkedList:
 
     def traversal(self):
         currentNode = self.first
-        while ( currentNode.next != None ):
+        while ( currentNode != None ):
             print currentNode.getData()
             currentNode = currentNode.next
+
+    def size(self):
+        i = 0
+        currentNode = self.first
+        while ( currentNode != None ):
+            currentNode = currentNode.next
+            i += 1
+
+        return i
+
+    def erase(self, index):
+        pass
+
 
 # linked list operations
 linked_list = SinglyLinkedList()
 
-insert_array = [54, 26, 93, 17, 77, 31]
+insert_array = [54, 26 , 93, 17, 77, 31]
 
 # push items into the stack
 for item in insert_array:
     newnode = Node(item)
+    # print newnode.getData()
     linked_list.insert(0, newnode)
 
 linked_list.traversal()
+linked_list.insert(2, Node(23))
+print ' '
+linked_list.traversal()
+# print linked_list.size()
