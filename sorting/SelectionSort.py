@@ -1,6 +1,6 @@
 import random
 
-#Insertion sort
+#Selection sort
 def selection_sort(items):
     n = len(items)
     
